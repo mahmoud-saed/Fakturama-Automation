@@ -7,7 +7,7 @@ import subprocess
 from dataclasses import dataclass
 from pathlib import Path
 
-from PIL import Image, ImageEnhance, ImageOps
+from PIL import Image, ImageEnhance
 
 
 @dataclass(frozen=True)
@@ -47,19 +47,24 @@ def read_image(path: Path) -> Page:
         with Image.open(path) as original:
             if original.format not in {"PNG", "JPEG"}:
                 raise OCRError("File contents are not PNG or JPEG")
-            image = ImageOps.grayscale(original)
-            if image.width < 1000:
-                scale = max(2, (1000 + image.width - 1) // image.width)
-                image = image.resize((image.width * scale, image.height * scale), Image.Resampling.LANCZOS)
-            image = ImageEnhance.Contrast(image).enhance(1.5)
-            buffer = io.BytesIO()
-            image.save(buffer, format="PNG")
+            return read_bitmap(original)
     except (OSError, ValueError) as exc:
         raise OCRError(f"Cannot read image: {exc}") from exc
 
+
+
+def read_bitmap(original: Image.Image, *, psm: int = 6, min_width: int = 2000) -> Page:
+    """Recognize a source image or a live control capture using the same OCR engine."""
+    image = original.convert("RGB")
+    if image.width < min_width:
+        scale = (min_width + image.width - 1) // image.width
+        image = image.resize((image.width * scale, image.height * scale), Image.Resampling.LANCZOS)
+    image = ImageEnhance.Contrast(image).enhance(1.5)
+    buffer = io.BytesIO()
+    image.save(buffer, format="PNG")
     try:
         result = subprocess.run(
-            ["tesseract", "stdin", "stdout", "--psm", "6", "-l", "eng", "tsv"],
+            ["tesseract", "stdin", "stdout", "--psm", str(psm), "-l", "eng", "tsv"],
             input=buffer.getvalue(), capture_output=True, timeout=60, check=False,
         )
     except subprocess.TimeoutExpired as exc:
@@ -68,7 +73,7 @@ def read_image(path: Path) -> Page:
         raise OCRError(result.stderr.decode("utf-8", "replace").strip() or "OCR failed")
 
     words = []
-    for row in csv.DictReader(io.StringIO(result.stdout.decode("utf-8", "replace")), delimiter="\t"):
+    for row in csv.DictReader(io.StringIO(result.stdout.decode("utf-8", "replace")), delimiter="\t", quoting=csv.QUOTE_NONE):
         value = row.get("text", "").strip()
         if not value:
             continue

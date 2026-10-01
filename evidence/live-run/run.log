@@ -1,0 +1,17 @@
+[INFO] Resuming the already-created linked Invoice draft INV000001 from PO000002; not creating a second draft
+[INFO] Fakturama menu: File->Save
+[INFO] Evidence screenshot: evidence\live-run\saved-invoice.png
+[INFO] Fakturama menu: Data->Documents
+[INFO] Fakturama menu: Data->Documents
+[INFO] Evidence screenshot: evidence\live-run\verified-invoice.png
+[INFO] Fakturama menu: Data->Documents
+[INFO] Fakturama menu: Data->Documents
+[INFO] Verified persisted Invoice: InvoiceView(number='INV000001', invoice_date=datetime.date(2026, 10, 1), service_date=datetime.date(2026, 10, 1), linked_order_number='PO000002', external_reference='WEB-2026-0714-A17', order_date=datetime.date(2026, 7, 14), invoice_address=Address(company='Northstar Office GmbH', street='Friedrichstrasse 88', postal_code='10117', city='Berlin', country='Germany'), delivery_address=Address(company='Northstar Office Warehouse', street='Beusselstrasse 44', postal_code='10553', city='Berlin', country='Germany'), vat_mode='With VAT', lines=(OrderLineView(sku='CHR-ERG-01', quantity=Decimal('2.00'), unit_net_price=Decimal('250'), vat_percent=Decimal('19'), discount_percent=Decimal('10.00'), line_net_total=Decimal('450.00')), OrderLineView(sku='MAT-DESK-02', quantity=Decimal('3.00'), unit_net_price=Decimal('40'), vat_percent=Decimal('19'), discount_percent=Decimal('0.00'), line_net_total=Decimal('120.00'))), totals=OrderTotalsView(net=Decimal('570.00'), vat=Decimal('108.30'), gross=Decimal('678.30'), overall_discount_percent=Decimal('0'), shipping=Decimal('0.00')), payment_method='Bank Transfer', paid=True, payment_date=datetime.date(2026, 7, 18), payment_value=Decimal('678.30'))
+[INFO] Evidence screenshot: evidence\live-run\verified-invoice.png
+[INFO] Fakturama menu: Data->Documents
+[INFO] Verified original Open Order: DocumentOrderRow(number='PO000002', order_date=datetime.date(2026, 7, 14), external_reference='WEB-2026-0714-A17', state='open', gross_total=Decimal('678.30'))
+[INFO] PASS: saved Order and linked paid Invoice verified; no creation or save actions repeated
+[INFO] Evidence screenshot: evidence\live-run\verified-documents.png
+2026-10-01 21:53:00,961 [INFO] Resolving master data from the open Order
+2026-10-01 21:53:01,323 [ERROR] desktop: Close or resolve unsaved editors before starting a new run (screenshot: evidence\live-run\desktop_1790880781276177700.png)
+2026-10-01 21:53:01,323 [ERROR] Desktop stopped for manual review: desktop: Close or resolve unsaved editors before starting a new run (screenshot: evidence\live-run\desktop_1790880781276177700.png)

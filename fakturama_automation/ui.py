@@ -6,11 +6,14 @@ control or uses fixed screen coordinates.
 
 from __future__ import annotations
 
+import logging
 import re
 import time
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Mapping
+
+LOGGER = logging.getLogger(__name__)
 
 
 @dataclass(frozen=True)
@@ -63,9 +66,12 @@ class FakturamaUI:
     def _fail(self, step: str, reason: str) -> UIActionError:
         try:
             image = self.screenshot(step)
-        except Exception:
+        except Exception as exc:
+            LOGGER.warning("%s: failure screenshot could not be captured: %s", step, exc)
             image = None
-        return UIActionError(step, reason, image)
+        error = UIActionError(step, reason, image)
+        LOGGER.error("%s", error)
+        return error
 
     @staticmethod
     def _matches(control: object, selector: Selector) -> bool:

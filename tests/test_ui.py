@@ -2,6 +2,7 @@ import tempfile
 import unittest
 from pathlib import Path
 from types import SimpleNamespace
+from unittest.mock import patch
 
 from fakturama_automation.ui import FakturamaUI, Selector, UIActionError
 
@@ -82,6 +83,16 @@ class UITests(unittest.TestCase):
         with self.assertRaises(UIActionError) as raised:
             self.ui.click("save", step="Save order")
         self.assertIn("disabled", str(raised.exception))
+
+    def test_capture_failure_preserves_action_error_and_logs_reason(self):
+        with patch.object(self.window, "capture_as_image", side_effect=OSError("capture unavailable")):
+            with self.assertLogs("fakturama_automation.ui", level="WARNING") as logs:
+                with self.assertRaises(UIActionError) as raised:
+                    self.ui.click("new_order", step="Open order")
+        self.assertIn("No inspected selector", str(raised.exception))
+        self.assertIsNone(raised.exception.screenshot)
+        self.assertIn("capture unavailable", logs.output[0])
+        self.assertIn("No inspected selector", logs.output[1])
 
 
 if __name__ == "__main__":

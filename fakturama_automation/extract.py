@@ -129,6 +129,8 @@ def _item(words: list[Word], x0: float, width: float, index: int) -> Item:
             if edges[column] <= position < edges[column + 1]:
                 columns[column].append(word)
                 break
+    # Tesseract can read the SKU cell's table border as isolated punctuation.
+    columns[1] = [word for word in columns[1] if word.text not in {"=", "|"}]
     fields = ["SKU", "description", "quantity", "unit price", "discount", "VAT", "line total"]
     values = [columns[1], columns[2], columns[3], columns[5], columns[6], columns[7], columns[8]]
     parsed = [_trusted(value, f"item {index} {field}") for field, value in zip(fields, values)]

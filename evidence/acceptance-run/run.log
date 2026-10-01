@@ -1,0 +1,122 @@
+2026-10-01 22:54:11,386 [ERROR] Desktop stopped for manual review: Expected one Fakturama window, found 0
+2026-10-01 22:56:50,115 [ERROR] Desktop stopped for manual review: Expected one Fakturama window, found 0
+2026-10-01 22:59:37,614 [INFO] Resolving master data from the open Order
+2026-10-01 22:59:37,828 [INFO] Fakturama menu: Data->Documents
+2026-10-01 22:59:39,962 [ERROR] desktop: Documents already exist for reference 'WEB-2026-0714-A17'; refusing a duplicate (screenshot: evidence\acceptance-run\desktop_1790884779909284800.png)
+2026-10-01 22:59:39,962 [ERROR] Desktop stopped for manual review: desktop: Documents already exist for reference 'WEB-2026-0714-A17'; refusing a duplicate (screenshot: evidence\acceptance-run\desktop_1790884779909284800.png)
+2026-10-01 23:02:13,147 [INFO] Resolving master data from the open Order
+2026-10-01 23:02:13,309 [INFO] Fakturama menu: Data->Documents
+2026-10-01 23:02:15,172 [INFO] Fakturama menu: New->New Order
+2026-10-01 23:02:20,566 [INFO] Opened Order PO000003
+2026-10-01 23:02:23,326 [ERROR] desktop: Could not ground the table column boundaries (screenshot: evidence\acceptance-run\desktop_1790884943275382100.png)
+2026-10-01 23:02:23,327 [ERROR] Desktop stopped for manual review: desktop: Could not ground the table column boundaries (screenshot: evidence\acceptance-run\desktop_1790884943275382100.png)
+2026-10-01 23:03:24,017 [INFO] Resolving master data from the open Order
+2026-10-01 23:03:24,196 [INFO] Fakturama menu: Data->Documents
+2026-10-01 23:03:26,042 [INFO] Fakturama menu: New->New Order
+2026-10-01 23:03:31,097 [INFO] Opened Order PO000004
+2026-10-01 23:03:33,823 [ERROR] desktop: Could not ground the table column boundaries (screenshot: evidence\acceptance-run\desktop_1790885013773768500.png)
+2026-10-01 23:03:33,823 [ERROR] Desktop stopped for manual review: desktop: Could not ground the table column boundaries (screenshot: evidence\acceptance-run\desktop_1790885013773768500.png)
+2026-10-01 23:14:29,433 [INFO] Resolving master data from the open Order
+2026-10-01 23:14:29,633 [INFO] Fakturama menu: Data->Documents
+2026-10-01 23:14:32,352 [INFO] Fakturama menu: New->New Order
+2026-10-01 23:14:37,302 [INFO] Opened Order PO000005
+2026-10-01 23:14:47,148 [ERROR] desktop: Missing Window 'Select the address' (screenshot: evidence\acceptance-run\desktop_1790885687099198600.png)
+2026-10-01 23:14:47,148 [ERROR] Desktop stopped for manual review: desktop: Missing Window 'Select the address' (screenshot: evidence\acceptance-run\desktop_1790885687099198600.png)
+2026-10-01 23:17:21,593 [INFO] Resolving master data from the open Order
+2026-10-01 23:17:21,885 [ERROR] desktop: Close or resolve unsaved editors before starting a new run (screenshot: evidence\acceptance-run\desktop_1790885841835217300.png)
+2026-10-01 23:17:21,885 [ERROR] Desktop stopped for manual review: desktop: Close or resolve unsaved editors before starting a new run (screenshot: evidence\acceptance-run\desktop_1790885841835217300.png)
+2026-10-01 23:17:57,727 [INFO] Resolving master data from the open Order
+2026-10-01 23:17:57,875 [INFO] Fakturama menu: Data->Documents
+2026-10-01 23:17:59,719 [INFO] Fakturama menu: New->New Order
+2026-10-01 23:18:04,746 [INFO] Opened Order PO000005
+2026-10-01 23:18:08,240 [INFO] Fakturama menu: Data->Debtors
+2026-10-01 23:18:29,363 [INFO] Fakturama menu: Data->terms of payment
+2026-10-01 23:18:33,480 [INFO] Fakturama menu: Data->VATs
+2026-10-01 23:18:37,179 [INFO] Fakturama menu: Data->Products
+2026-10-01 23:18:44,325 [ERROR] desktop: Expected one custom table in '', found 0 (screenshot: evidence\acceptance-run\desktop_1790885924270869200.png)
+2026-10-01 23:18:44,325 [ERROR] Desktop stopped for manual review: desktop: Expected one custom table in '', found 0 (screenshot: evidence\acceptance-run\desktop_1790885924270869200.png)
+2026-10-01 23:20:58,341 [INFO] Resolving master data from the open Order
+2026-10-01 23:20:58,539 [INFO] Fakturama menu: Data->Documents
+2026-10-01 23:21:00,438 [INFO] Fakturama menu: New->New Order
+2026-10-01 23:21:04,951 [INFO] Opened Order PO000005
+2026-10-01 23:21:08,496 [INFO] Fakturama menu: Data->Debtors
+2026-10-01 23:21:28,812 [INFO] Fakturama menu: Data->terms of payment
+2026-10-01 23:21:33,001 [INFO] Fakturama menu: Data->VATs
+2026-10-01 23:21:36,743 [INFO] Fakturama menu: Data->Products
+2026-10-01 23:21:48,805 [ERROR] Desktop stopped for manual review: Handle 1639512 is not a vaild window handle
+Traceback (most recent call last):
+  File "C:\Users\pc\Downloads\Fakturama-Automation\.venv\lib\site-packages\pywinauto\application.py", line 250, in __resolve_control
+    ctrl = wait_until_passes(
+  File "C:\Users\pc\Downloads\Fakturama-Automation\.venv\lib\site-packages\pywinauto\timings.py", line 458, in wait_until_passes
+    raise err
+pywinauto.timings.TimeoutError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\pc\Downloads\Fakturama-Automation\fakturama_automation\__main__.py", line 60, in main
+    resolved = open_order_and_resolve(order, desktop)
+  File "C:\Users\pc\Downloads\Fakturama-Automation\fakturama_automation\master_data.py", line 284, in open_order_and_resolve
+    product_ids.append(_product(ui, item, vat_name))
+  File "C:\Users\pc\Downloads\Fakturama-Automation\fakturama_automation\master_data.py", line 258, in _product
+    ui.select_product(matches[0].record_id)
+  File "C:\Users\pc\Downloads\Fakturama-Automation\fakturama_automation\desktop.py", line 319, in select_product
+    self.controls.fill(fields[0], record_id)
+  File "C:\Users\pc\Downloads\Fakturama-Automation\fakturama_automation\windows_controls.py", line 100, in fill
+    actual = self.value(control)
+  File "C:\Users\pc\Downloads\Fakturama-Automation\fakturama_automation\windows_controls.py", line 77, in value
+    return self.native(control).window_text().strip()
+  File "C:\Users\pc\Downloads\Fakturama-Automation\fakturama_automation\windows_controls.py", line 70, in native
+    return Desktop(backend="win32").window(handle=control.handle).wrapper_object()
+  File "C:\Users\pc\Downloads\Fakturama-Automation\.venv\lib\site-packages\pywinauto\application.py", line 267, in wrapper_object
+    ctrls = self.__resolve_control(self.criteria)
+  File "C:\Users\pc\Downloads\Fakturama-Automation\.venv\lib\site-packages\pywinauto\application.py", line 261, in __resolve_control
+    raise e.original_exception
+  File "C:\Users\pc\Downloads\Fakturama-Automation\.venv\lib\site-packages\pywinauto\timings.py", line 436, in wait_until_passes
+    func_val = func(*args, **kwargs)
+  File "C:\Users\pc\Downloads\Fakturama-Automation\.venv\lib\site-packages\pywinauto\application.py", line 203, in __get_ctrl
+    dialog = self.backend.generic_wrapper_class(findwindows.find_element(**criteria[0]))
+  File "C:\Users\pc\Downloads\Fakturama-Automation\.venv\lib\site-packages\pywinauto\controls\hwndwrapper.py", line 180, in __new__
+    return super(HwndWrapper, cls)._create_wrapper(cls, element, HwndWrapper)
+  File "C:\Users\pc\Downloads\Fakturama-Automation\.venv\lib\site-packages\pywinauto\base_wrapper.py", line 129, in _create_wrapper
+    obj.__init__(element_info)
+  File "C:\Users\pc\Downloads\Fakturama-Automation\.venv\lib\site-packages\pywinauto\controls\hwndwrapper.py", line 1496, in __init__
+    HwndWrapper.__init__(self, hwnd)
+  File "C:\Users\pc\Downloads\Fakturama-Automation\.venv\lib\site-packages\pywinauto\controls\hwndwrapper.py", line 201, in __init__
+    raise InvalidWindowHandle(self.handle)
+pywinauto.controls.hwndwrapper.InvalidWindowHandle: Handle 1639512 is not a vaild window handle
+2026-10-01 23:21:48,877 [INFO] Evidence screenshot: evidence\acceptance-run\manual-review.png
+2026-10-01 23:22:31,229 [INFO] Resolving master data from the open Order
+2026-10-01 23:22:31,438 [INFO] Fakturama menu: Data->Documents
+2026-10-01 23:22:33,351 [INFO] Fakturama menu: New->New Order
+2026-10-01 23:22:37,852 [INFO] Opened Order PO000005
+2026-10-01 23:22:41,362 [INFO] Fakturama menu: Data->Debtors
+2026-10-01 23:23:01,488 [INFO] Fakturama menu: Data->terms of payment
+2026-10-01 23:23:05,748 [INFO] Fakturama menu: Data->VATs
+2026-10-01 23:23:09,553 [INFO] Fakturama menu: Data->Products
+2026-10-01 23:23:16,651 [ERROR] desktop: Expected one custom table in '', found 0 (screenshot: evidence\acceptance-run\desktop_1790886196594211100.png)
+2026-10-01 23:23:16,651 [ERROR] Desktop stopped for manual review: desktop: Expected one custom table in '', found 0 (screenshot: evidence\acceptance-run\desktop_1790886196594211100.png)
+2026-10-01 23:24:32,473 [INFO] Resolving master data from the open Order
+2026-10-01 23:24:32,673 [INFO] Fakturama menu: Data->Documents
+2026-10-01 23:24:34,575 [INFO] Fakturama menu: New->New Order
+2026-10-01 23:24:39,056 [INFO] Opened Order PO000005
+2026-10-01 23:24:42,544 [INFO] Fakturama menu: Data->Debtors
+2026-10-01 23:25:02,651 [INFO] Fakturama menu: Data->terms of payment
+2026-10-01 23:25:06,850 [INFO] Fakturama menu: Data->VATs
+2026-10-01 23:25:10,795 [INFO] Fakturama menu: Data->Products
+2026-10-01 23:25:19,689 [ERROR] desktop: Expected one custom table in '', found 0 (screenshot: evidence\acceptance-run\desktop_1790886319637603100.png)
+2026-10-01 23:25:19,689 [ERROR] Desktop stopped for manual review: desktop: Expected one custom table in '', found 0 (screenshot: evidence\acceptance-run\desktop_1790886319637603100.png)
+2026-10-01 23:25:55,192 [INFO] Resolving master data from the open Order
+2026-10-01 23:25:55,395 [INFO] Fakturama menu: Data->Documents
+2026-10-01 23:25:57,308 [INFO] Fakturama menu: New->New Order
+2026-10-01 23:26:01,853 [INFO] Opened Order PO000005
+2026-10-01 23:26:05,348 [INFO] Fakturama menu: Data->Debtors
+2026-10-01 23:26:25,940 [INFO] Fakturama menu: Data->terms of payment
+2026-10-01 23:26:30,108 [INFO] Fakturama menu: Data->VATs
+2026-10-01 23:26:33,876 [INFO] Fakturama menu: Data->Products
+2026-10-01 23:26:45,415 [INFO] Fakturama menu: Data->VATs
+2026-10-01 23:26:49,215 [INFO] Fakturama menu: Data->Products
+2026-10-01 23:27:00,938 [INFO] Completing and verifying Order PO000005
+2026-10-01 23:27:49,988 [INFO] Fakturama menu: File->Save
+2026-10-01 23:27:58,869 [ERROR] desktop: Save did not complete; it will not be retried (screenshot: evidence\acceptance-run\desktop_1790886478804934700.png)
+2026-10-01 23:27:58,869 [ERROR] Desktop stopped for manual review: desktop: Save did not complete; it will not be retried (screenshot: evidence\acceptance-run\desktop_1790886478804934700.png)

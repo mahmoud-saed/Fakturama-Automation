@@ -1,6 +1,9 @@
+import json
 import unittest
+from dataclasses import replace
 from datetime import date
 from decimal import Decimal
+from pathlib import Path
 
 from fakturama_automation.extract import ReviewRequired, _date, _decimal, extract, validate
 from fakturama_automation.models import Address, Debtor, Item, OrderData, Payment, Totals
@@ -60,6 +63,22 @@ def sample_page(low_confidence=False) -> Page:
 
 
 class ExtractionValidationTests(unittest.TestCase):
+    def recorded_page(self):
+        data = json.loads((Path(__file__).parent / "fixtures" / "order_ocr.json").read_text(encoding="utf-8"))
+        return Page(data["width"], data["height"], tuple(Word(*word) for word in data["words"]))
+
+    def test_extracts_recorded_image_ocr_with_table_borders(self):
+        expected = sample_order()
+        delivery = replace(expected.debtor.delivery_address, street="Beusselstrasse 44", postal_code="10553")
+        expected = replace(expected, debtor=replace(expected.debtor, delivery_address=delivery))
+        self.assertEqual(extract(self.recorded_page()), expected)
+
+    def test_recorded_low_confidence_sku_still_stops(self):
+        page = self.recorded_page()
+        words = tuple(replace(word, confidence=40) if word.text == "CHR-ERG-01" else word for word in page.words)
+        with self.assertRaisesRegex(ReviewRequired, "Uncertain OCR for item 1 SKU"):
+            extract(replace(page, words=words))
+
     def test_extracts_sample_layout(self):
         order = extract(sample_page())
         self.assertEqual(order, sample_order())

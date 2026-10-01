@@ -1,0 +1,46 @@
+Recorded: 2026-10-01
+Command: .\.venv\Scripts\python.exe -m unittest discover -s tests -v
+Screenshot paths below are temporary test artifacts, removed by test cleanup.
+
+test_decimal_and_date_normalization (test_extraction.ExtractionValidationTests) ... ok
+test_extracts_sample_layout (test_extraction.ExtractionValidationTests) ... ok
+test_line_total_mismatch_stops (test_extraction.ExtractionValidationTests) ... ok
+test_low_confidence_value_stops (test_extraction.ExtractionValidationTests) ... ok
+test_missing_source_totals_stops (test_extraction.ExtractionValidationTests) ... ok
+test_paid_needs_date (test_extraction.ExtractionValidationTests) ... ok
+test_paid_source_without_payment_date_stops (test_extraction.ExtractionValidationTests) ... ok
+test_sample_totals_and_serialization (test_extraction.ExtractionValidationTests) ... ok
+test_broken_order_link_stops_before_save (test_invoice.InvoiceTests) ... ok
+test_copied_total_mismatch_stops_before_save (test_invoice.InvoiceTests) ... ok
+test_duplicate_invoice_row_does_not_trigger_second_save (test_invoice.InvoiceTests) ... ok
+test_original_order_must_remain_open (test_invoice.InvoiceTests) ... ok
+test_paid_invoice_uses_follow_up_and_verifies_both_documents (test_invoice.InvoiceTests) ... ok
+test_saved_payment_mismatch_stops_without_resaving (test_invoice.InvoiceTests) ... ok
+test_unpaid_invoice_has_no_payment_date_or_value (test_invoice.InvoiceTests) ... ok
+test_conflicting_vat_stops_before_product_creation (test_master_data.MasterDataTests) ... ok
+test_creates_missing_records_after_opening_order_and_reselects (test_master_data.MasterDataTests) ... ok
+test_duplicate_debtor_stops_before_creation (test_master_data.MasterDataTests) ... ok
+test_invalid_source_stops_before_opening_order (test_master_data.MasterDataTests) ... ok
+test_lost_order_editor_stops (test_master_data.MasterDataTests) ... ok
+test_reuses_unique_matching_records (test_master_data.MasterDataTests) ... ok
+test_unsupported_payment_stops_before_opening_order (test_master_data.MasterDataTests) ... ok
+test_vat_name_uses_plain_decimal (test_master_data.MasterDataTests) ... ok
+test_duplicate_saved_order_is_manual_review_without_resave (test_order_completion.OrderCompletionTests) ... ok
+test_fills_source_order_and_verifies_saved_row (test_order_completion.OrderCompletionTests) ... ok
+test_total_mismatch_stops_before_save (test_order_completion.OrderCompletionTests) ... ok
+test_wrong_line_value_stops_before_save (test_order_completion.OrderCompletionTests) ... ok
+test_wrong_saved_state_is_manual_review (test_order_completion.OrderCompletionTests) ... ok
+test_ambiguous_control_stops_with_screenshot (test_ui.UITests) ... Save order: Control 'save' is ambiguous (2 visible matches) (screenshot: C:\Users\pc\AppData\Local\Temp\tmpbjd3bhho\Save_order_1790869915293906900.png)
+ok
+test_capture_failure_preserves_action_error_and_logs_reason (test_ui.UITests) ... ok
+test_click_can_check_result_control (test_ui.UITests) ... ok
+test_disabled_control_stops (test_ui.UITests) ... Save order: Control 'save' is disabled (screenshot: C:\Users\pc\AppData\Local\Temp\tmp37jffotd\Save_order_1790869915307907200.png)
+ok
+test_fill_reads_back_value (test_ui.UITests) ... ok
+test_missing_selector_has_clear_reason (test_ui.UITests) ... Open order: No inspected selector is configured for 'new_order' (screenshot: C:\Users\pc\AppData\Local\Temp\tmpise4j6iv\Open_order_1790869915308906400.png)
+ok
+
+----------------------------------------------------------------------
+Ran 34 tests in 0.029s
+
+OK
